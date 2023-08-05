@@ -1,0 +1,26 @@
+version: "3.9"
+services:
+    nginx:
+        image: nginx:latest
+        restart: always
+        ports:
+            - "${NGINX_PORT}:80"
+        environment:
+            NGINX_ENV_VAR: ${NGINX_ENV_VAR}
+        container_name: ${NGINX_CONTAINER_NAME}
+        networks:
+            - app_network_local
+ 
+    apache:
+        image: httpd:alpine
+        restart: always
+        ports:
+            - "${APACHE_PORT}:80"
+        environment:
+            APACHE_ENV_VAR: ${APACHE_ENV_VAR}
+        container_name: ${APACHE_CONTAINER_NAME}
+        networks:
+            - app_network_local
+
+networks:
+    app_network_local:
