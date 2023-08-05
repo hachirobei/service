@@ -1,2 +1,2 @@
 # service
- docker nginx + apache
+ docker + nginx + apache
